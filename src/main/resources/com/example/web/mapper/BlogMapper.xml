@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.web.mapper.BlogMapper">
+
+    <select id="getBlogByIdAndUser" resultType="com.example.web.pojo.Blog">
+        select * from tb_Blog where User_id = 1
+    </select>
+<!--    <insert id="InsertBlog">-->
+<!--        insert into tb_blog values(4,"这是第一篇博客",'你好傻屌',1,1,'2019-08-14 06:40:33')-->
+<!--    </insert>-->
+    <delete id="InsertBlog1">
+        delete from tb_blog where id = 1
+    </delete>
+
+    <select id="getAllBlog" resultType="com.example.web.pojo.Blog">
+        select * from tb_blog
+    </select>
+</mapper>

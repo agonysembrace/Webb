@@ -8,8 +8,8 @@
 <!--    <insert id="InsertBlog">-->
 <!--        insert into tb_blog values(4,"这是第一篇博客",'你好傻屌',1,1,'2019-08-14 06:40:33')-->
 <!--    </insert>-->
-    <delete id="InsertBlog1">
-        delete from tb_blog where id = 1
+    <delete id="InsertBlog">
+        delete from tb_blog where id = 4
     </delete>
 
     <select id="getAllBlog" resultType="com.example.web.pojo.Blog">

@@ -11,7 +11,7 @@ import java.util.List;
  * @Decription:
  */
 public interface BlogService {
-    public Blog getBlogByIdAndUser(int BlogId,int userId);
+    Blog getBlogByIdAndUser(int BlogId,int userId);
     void insertBlog();
     List<Blog> getAllBlog();
 }

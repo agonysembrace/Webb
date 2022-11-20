@@ -1,5 +1,6 @@
 package com.example.web.controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,11 +11,15 @@ import org.springframework.web.bind.annotation.RestController;
  * @Decription:
  */
 
-@RestController
+@Controller
 public class HelloController {
 
     @RequestMapping("/hello")
     public String sayHello() {
-       return "index";
+       return "success";
+    }
+    @RequestMapping("/login")
+    public String login() {
+        return "login";
     }
 }

@@ -18,7 +18,7 @@ public interface BlogMapper {
 
     Blog getBlogByIdAndUser(int BlogId, int userId);
 
-    @Delete("delete from tb_blog where id = 3")
+//    @Delete("delete from tb_blog where id = 1")
     void InsertBlog();
 
     List<Blog> getAllBlog() ;

@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public Result login(@RequestBody LoginDTO loginForm, HttpSession session) {
+    public Result login( LoginDTO loginForm, HttpSession session) {
         //1. 校验手机号
         String username = loginForm.getUsername();
         String password = loginForm.getPassword();

@@ -3,6 +3,7 @@ package com.example.web.Interceptor;
 
 import com.example.web.DTO.UserDTO;
 import com.example.web.pojo.User;
+import com.example.web.utils.UserHolder;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -26,6 +27,7 @@ public class UserLoginInterceptor implements HandlerInterceptor {
             //统一拦截（查询当前session是否存在user）(这里user会在每次登录成功后，写入session)
             UserDTO user = (UserDTO) session.getAttribute("user");
             if (user != null) {
+                UserHolder.saveUser(user);
                 return true;
             }
             response.sendRedirect(request.getContextPath() + "login");
@@ -36,7 +38,6 @@ public class UserLoginInterceptor implements HandlerInterceptor {
         //如果设置为false时，被请求时，拦截器执行到此处将不会继续操作
         //如果设置为true时，请求将会继续执行后面的操作
     }
-
 
 
     //访问controller之后 访问视图之前被调用
@@ -50,6 +51,7 @@ public class UserLoginInterceptor implements HandlerInterceptor {
      */
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+        UserHolder.removeUser();
         System.out.println("执行了拦截器的afterCompletion方法");
     }
 }

@@ -34,9 +34,13 @@ public class LoginController {
     public String Login(@RequestParam("username")String username ,
                         @RequestParam("password")String password, HttpSession session){
          LoginDTO loginForm = new LoginDTO(username,password);
-         userService.login(loginForm, session);
+         Result result = userService.login(loginForm, session);
 //         return "success";
-        return "redirect:/index";
+        if(result.getErrorMsg()==null)
+            return "redirect:/index";
+        else
+            return  "redirect:/login";
+//        return "redirect:/index";
     }
 
 }

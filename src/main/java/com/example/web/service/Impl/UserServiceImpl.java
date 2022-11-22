@@ -7,6 +7,7 @@ import com.example.web.DTO.UserDTO;
 import com.example.web.mapper.LoginMapper;
 import com.example.web.pojo.User;
 import com.example.web.service.UserService;
+import com.example.web.utils.UserHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -42,6 +43,9 @@ public class UserServiceImpl implements UserService {
             //6. 不存在，创建新用户
             return Result.fail("用户不存在或密码不正确");
         }
+
+        //在此处向线程中添加用户是无效的，因为与拦截器中已不是同个线程，添加后无法在Usercontroller中获取到
+//        UserHolder.saveUser(BeanUtil.copyProperties(user, UserDTO.class));
 
         //7.保存用户信息到session
         session.setAttribute("user", BeanUtil.copyProperties(user, UserDTO.class));

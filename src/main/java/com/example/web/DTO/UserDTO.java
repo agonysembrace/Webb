@@ -13,6 +13,7 @@ import lombok.Data;
 public class UserDTO {
 
     String username;
-    private Long userId;
+    private int userId;
+    private String introduction;
 
 }

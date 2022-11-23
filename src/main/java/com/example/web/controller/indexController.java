@@ -25,8 +25,7 @@ import org.springframework.web.bind.annotation.GetMapping;
         public String getindex(Model model)//对应函数
         {
             UserDTO user = UserHolder.getUser();
-            model.addAttribute("username",user.getUsername());
-            model.addAttribute("introduction",user.getIntroduction());
+            model.addAttribute("author",user);
             return "index";//与templates中index.html对应
         }
 

@@ -5,6 +5,7 @@ import com.example.web.DTO.LoginDTO;
 import com.example.web.DTO.Result;
 import com.example.web.DTO.UserDTO;
 import com.example.web.mapper.LoginMapper;
+import com.example.web.mapper.UserMapper;
 import com.example.web.pojo.User;
 import com.example.web.service.UserService;
 import com.example.web.utils.UserHolder;
@@ -26,6 +27,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     LoginMapper loginMapper;
+
+    @Autowired
+    UserMapper userMapper;
 
 
     @Override
@@ -52,5 +56,17 @@ public class UserServiceImpl implements UserService {
         System.out.println(session.getAttribute("user"));
         return Result.ok();
 
+    }
+
+    @Override
+    public User getUserById(int userId) {
+        return userMapper.getUserById(userId);
+    }
+
+    @Override
+    public byte[] getImgByUserId(int userId) {
+        User user = userMapper.getUserById(userId);
+        byte[] headShot = user.getHeadShot();
+        return headShot;
     }
 }

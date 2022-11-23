@@ -15,4 +15,8 @@ import javax.servlet.http.HttpSession;
 public interface UserService {
 
     Result login(LoginDTO loginForm, HttpSession session);
+
+    User getUserById(int userId);
+
+   byte[] getImgByUserId(int userId);
 }

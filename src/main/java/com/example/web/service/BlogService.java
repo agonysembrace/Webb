@@ -1,6 +1,7 @@
 package com.example.web.service;
 
 import com.example.web.pojo.Blog;
+import com.example.web.pojo.Reply;
 
 import java.util.List;
 
@@ -14,4 +15,10 @@ public interface BlogService {
     Blog getBlogByIdAndUser(int BlogId,int userId);
     void insertBlog();
     List<Blog> getAllBlog();
+
+    List<Blog> getBlogByUserId(int userId);
+
+    Blog getBlogByBlogId(int blogId);
+
+    List<Reply> getReplyByBlogId(int blogId);
 }

@@ -18,9 +18,13 @@ public interface BlogMapper {
 
     Blog getBlogByIdAndUser(int BlogId, int userId);
 
+    List<Blog>getBlogByUserId(int userId);
+
 //    @Delete("delete from tb_blog where id = 1")
     void InsertBlog();
 
     List<Blog> getAllBlog() ;
+
+    Blog getBlogByBlogId(int blogId);
 
 }

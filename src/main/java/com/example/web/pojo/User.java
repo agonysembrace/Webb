@@ -15,5 +15,6 @@ public class User {
     private String password;
     private int userId;
     private String introduction;
+    private byte[] headShot;
 
 }

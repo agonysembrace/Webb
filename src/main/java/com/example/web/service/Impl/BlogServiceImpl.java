@@ -41,6 +41,11 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
+    public void writeReply(int blogId, int userId, LocalDateTime replyTime, String content) {
+        replyMapper.writeReply(blogId, userId, replyTime, content);
+    }
+
+    @Override
     public List<Blog> getAllBlog() {
         return blogMapper.getAllBlog();
     }

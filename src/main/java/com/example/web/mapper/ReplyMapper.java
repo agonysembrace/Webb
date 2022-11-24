@@ -3,6 +3,7 @@ package com.example.web.mapper;
 import com.example.web.pojo.Reply;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -16,6 +17,7 @@ import java.util.List;
 public interface ReplyMapper {
 
     List<Reply> getReplyByBlogId(int blogId);
+    void writeReply(int blogId , int userId, LocalDateTime replyTime,String content);
 
 }
 

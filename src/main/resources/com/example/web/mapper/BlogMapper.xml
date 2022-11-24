@@ -3,7 +3,7 @@
 <mapper namespace="com.example.web.mapper.BlogMapper">
 
     <select id="getBlogByIdAndUser" resultType="com.example.web.pojo.Blog">
-        select * from tb_Blog where User_id = #{userId} and Blog_id = #{blogId} limit 1
+        select * from tb_Blog where User_id = #{userId} and blog_id = #{blogId} limit 1
     </select>
 
     <select id="getBlogByUserId" resultType="com.example.web.pojo.Blog">
@@ -15,7 +15,7 @@ values (#{blogTitle},#{blogContent},#{createTime},#{userId})
     </insert>
 
     <select id="getBlogByBlogId" resultType="com.example.web.pojo.Blog">
-        select * from tb_Blog where Blog_id = #{blogId}
+        select * from tb_Blog where blog_id = #{blogId}
     </select>
 <!--    <insert id="InsertBlog">-->
 <!--        insert into tb_blog values(4,"这是第一篇博客",'你好傻屌',1,1,'2019-08-14 06:40:33')-->

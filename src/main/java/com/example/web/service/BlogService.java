@@ -17,6 +17,7 @@ public interface BlogService {
 //    void insertBlog();
 
     void insertBlog(String blogTitle, String blogContent, LocalDateTime createTime,int userId);
+    void writeReply(int blogId , int userId, LocalDateTime replyTime,String content);
 
     List<Blog> getAllBlog();
 

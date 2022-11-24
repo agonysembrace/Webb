@@ -42,4 +42,12 @@ public class WriteController {
         blogService.insertBlog(topic,content,LocalDateTime.now(),user.getUserId());
         return "redirect:index";
     }
+
+    @RequestMapping(value = "writereply" ,method = RequestMethod.POST)
+    public String writereply(@RequestParam("content")String content,@RequestParam("blogId") int blogId){
+        UserDTO user = UserHolder.getUser();
+        blogService.writeReply(blogId,user.getUserId(),LocalDateTime.now(),content);
+        return "redirect:single?blogId="+blogId;
+    }
+
 }

@@ -6,5 +6,13 @@
         select * from tb_reply where blog_id = #{blogId}
     </select>
 
+    <insert id="writeReply" >
+        insert into tb_reply (blog_id,user_id,reply_time,content)
+        values (#{blogId},#{userId},#{replyTime},#{content})
+    </insert>
 
+<!--    <insert id="InsertBlog" >-->
+<!--        insert into tb_Blog (content,create_Time,user_id)-->
+<!--        values (#{blogTitle},#{blogContent},#{createTime},#{userId})-->
+<!--    </insert>-->
 </mapper>

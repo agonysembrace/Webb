@@ -71,12 +71,12 @@ public class BlogController {
                            HttpServletResponse response){
         try {
             byte[] img = userService.getImgByUserId(id);
-//            byte[] data = imgTest.getImg();
+//            byte[] data = imgTest.getImg();```
             response.setContentType("image/jpeg");
             response.setCharacterEncoding("UTF-8");
-            OutputStream outputSream = response.getOutputStream();
-            outputSream.write(img);
-            outputSream.flush();
+            OutputStream outputStream = response.getOutputStream();
+            outputStream.write(img);
+            outputStream.flush();
         }catch (IOException e){
             e.printStackTrace();
         }

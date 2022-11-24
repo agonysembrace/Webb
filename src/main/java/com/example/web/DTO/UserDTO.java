@@ -15,5 +15,6 @@ public class UserDTO {
     String username;
     private int userId;
     private String introduction;
+    byte[] headShot;
 
 }

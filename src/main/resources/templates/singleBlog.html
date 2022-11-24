@@ -42,7 +42,7 @@
 				
 				<ul class="nav navbar-nav">
 					<li><a href="index">Home</a></li>
-					<li><a href="about">About</a></li>
+					<li><a href="write">About</a></li>
 					<li class="dropdown"></li>
 					<li class="active"><a href="blog">Blog</a></li>
 				</ul>
@@ -82,30 +82,24 @@
 					<h3 class="comments-title" th:text="${replyListSize}+' Comments'">3 Comments</h3>
 					<a href="#comment-form" class="leave-comment">Leave a Comment</a>
 
-
-
 <!--					<form action="/addImg" enctype="multipart/form-data" method="post">-->
 <!--						<input type="file" name="file">-->
 <!--						<input type="submit" value="上传">-->
 <!--					</form>-->
 
-					<br>
 					<ol class="comments-list">
 						<li class="comment" th:each="reply,replyStat:${replyList}">
 							<div>
-
 <!--								<div th:each="reply,replyStat:${replyList}">-->
 								<img th:src = "'/getImgById?id='+${reply.user.userId}" alt="Avatar" class="avatar">
 								<div class="comment-meta">
 									<span th:text="${reply.user.username}"/>
 									<span th:text="'  回复于'+${reply.replyTime}"/>
-
 								</div>
 								<div class="comment-body">
 									<span th:text="${reply.content}"/>
 								</div>
 							</div>
-
 						</li>
 					</ol>
 
@@ -156,10 +150,10 @@
 			<div class="col-md-3 widget">
 				<h3 class="widget-title">Contact</h3>
 				<div class="widget-body">
-					<p>+234 23 9873237<br>
-						<a href="mailto:#">some.email@somewhere.com</a><br>
+					<p>+18860956209<br>
+						<a href="mailto:#">mf21230116@smail.nju.edu.cn</a><br>
 						<br>
-						234 Hidden Pond Road, Ashland City, TN 37015
+						南京大学仙林校区
 					</p>
 				</div>
 			</div>
@@ -187,10 +181,10 @@
 			<div class="col-md-3 widget">
 				<h3 class="widget-title">Form widget</h3>
 				<div class="widget-body">
-					<p>+234 23 9873237<br>
-						<a href="mailto:#">some.email@somewhere.com</a><br>
+					<p>+18860956209<br>
+						<a href="mailto:#">mf21230116@smail.nju.edu.cn</a><br>
 						<br>
-						234 Hidden Pond Road, Ashland City, TN 37015
+						南京大学仙林校区
 					</p>
 				</div>
 			</div>
@@ -205,15 +199,15 @@
 
 			<div class="col-md-6 widget">
 				<div class="widget-body">
-					<p>234 Hidden Pond Road, Ashland City, TN 37015 </p>
+					<p> 南京大学仙林校区 </p>
 				</div>
 			</div>
 
 			<div class="col-md-6 widget">
 				<div class="widget-body">
 					<p class="text-right">
-						Copyright &copy; 2014, Your awesome name here<br>
-						<a target="_blank" href="http://www.mobanwang.com" title="网页模板">网页模板</a> </p>
+						Copyright &copy; 2022, Lingfei Wang<br>
+						<!--                        <a target="_blank" href="http://www.mobanwang.com" title="网页模板">网页模板</a> </p>-->
 				</div>
 			</div>
 

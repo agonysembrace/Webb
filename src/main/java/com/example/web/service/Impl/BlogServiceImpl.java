@@ -9,6 +9,7 @@ import com.example.web.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -35,8 +36,8 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
-    public void insertBlog() {
-        blogMapper.InsertBlog();
+    public void insertBlog(String blogTitle, String blogContent, LocalDateTime createTime, int userId) {
+        blogMapper.InsertBlog(blogTitle,blogContent,createTime, userId);
     }
 
     @Override

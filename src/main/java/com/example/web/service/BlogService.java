@@ -3,6 +3,7 @@ package com.example.web.service;
 import com.example.web.pojo.Blog;
 import com.example.web.pojo.Reply;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -13,7 +14,10 @@ import java.util.List;
  */
 public interface BlogService {
     Blog getBlogByIdAndUser(int BlogId,int userId);
-    void insertBlog();
+//    void insertBlog();
+
+    void insertBlog(String blogTitle, String blogContent, LocalDateTime createTime,int userId);
+
     List<Blog> getAllBlog();
 
     List<Blog> getBlogByUserId(int userId);

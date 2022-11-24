@@ -43,7 +43,7 @@
 				
 				<ul class="nav navbar-nav">
 					<li><a href="index">Home</a></li>
-					<li><a href="about">About</a></li>
+					<li><a href="write">About</a></li>
 <!--					<li class="dropdown">-->
 <!--						<a href="#" class="dropdown-toggle" data-toggle="dropdown">More Pages <b class="caret"></b></a>-->
 <!--						<ul class="dropdown-menu">-->
@@ -64,17 +64,7 @@
 
 	<div class="container">
 		<div class="row topspace">
-<!--			<div class="col-sm-8 col-sm-offset-2">-->
 			<div class="col-sm-8 col-sm-offset-2" th:each="blog,blogStat:${blogList}">
-<!--			<table>-->
-<!--				<tr th:each="blog:${blogList}">-->
-<!--					<td th:text="${blog.title}"></td>-->
-<!--					<td th:text="${blog.content}"></td>-->
-<!--					<td th:text="${blog.CreateTime}"></td>-->
-<!--				</tr>-->
-<!--			</table>-->
-
-
 
 				<article class="post">
 					<header class="entry-header" >
@@ -87,55 +77,6 @@
 						<p th:text="${blog.content}"> in</p>
 					</div>
 				</article>
-
-<!--				<article class="post" th:if="${blog1 ne null}">-->
-<!--					<header class="entry-header" >-->
-<!--						<div class="entry-meta"> -->
-<!--							<span class="posted-on"><time class="entry-date published" date="2013-09-27"  th:text="${blog1.createTime}">September 27, 2013</time></span>-->
-<!--						</div>-->
-<!--						<h1 class="entry-title"><a th:href="@{single(blogId=${blog1.blogId})} " rel="bookmark" th:text ="${blog1.title}">Hello world!</a></h1>-->
-<!--					</header>-->
-<!--					<div class="entry-content">-->
-<!--						<p th:text="${blog1.content}"> in</p>-->
-<!--					</div>-->
-<!--				</article>-->
-
-<!--				<article class="post" th:if="${blog2 ne null}" >-->
-<!--					<header class="entry-header">-->
-<!--						<div class="entry-meta">-->
-<!--							<span class="posted-on"><time class="entry-date published" date="2013-09-27"  th:text="${blog2.createTime}">September 27, 2013</time></span>-->
-<!--						</div>-->
-<!--						<h1 class="entry-title"><a th:href="@{single(blogId=${blog2.blogId})} "  rel="bookmark" th:text ="${blog2.title}">Hello world!</a></h1>-->
-<!--					</header>-->
-<!--					<div class="entry-content">-->
-<!--						<p th:text="${blog2.content}"> in</p>-->
-<!--					</div>-->
-<!--				</article>-->
-
-<!--				<article class="post" th:if="${blog3 ne null}">-->
-<!--					<header class="entry-header">-->
-<!--						<div class="entry-meta">-->
-<!--							<span class="posted-on"><time class="entry-date published" date="2013-09-27"  th:text="${blog3.createTime}">September 27, 2013</time></span>-->
-<!--						</div>-->
-<!--						<h1 class="entry-title"><a th:href="@{single(blogId=${blog3.blogId})} "  rel="bookmark" th:text ="${blog3.title}">Hello world!</a></h1>-->
-<!--					</header>-->
-<!--					<div class="entry-content">-->
-<!--						<p th:text="${blog3.content}"> in</p>-->
-<!--					</div>-->
-<!--				</article>-->
-
-<!--				<article class="post">-->
-<!--					<header class="entry-header">-->
-<!--						<div class="entry-meta">-->
-<!--							<span class="posted-on"><time class="entry-date published" date="2013-09-27"  th:text="${blog1.createTime}">September 27, 2013</time></span>-->
-<!--						</div>-->
-<!--						<h1 class="entry-title"><a href="single.html" rel="bookmark" th:text ="${blog1.title}">Hello world!</a></h1>-->
-<!--					</header>-->
-<!--					<div class="entry-content">-->
-<!--						<p th:text="${blog1.content}"> in</p>-->
-<!--					</div>-->
-<!--				</article>-->
-
 			</div> 
 		</div>
 

@@ -17,8 +17,6 @@ import java.util.List;
 public interface UserMapper {
 
     User getUserById(int userId);
-
     Void insertImg(byte[] img);
-
 //    User  getImgByUserId(int userId);
 }

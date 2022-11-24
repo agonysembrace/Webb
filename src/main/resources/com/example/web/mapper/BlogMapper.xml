@@ -9,6 +9,10 @@
     <select id="getBlogByUserId" resultType="com.example.web.pojo.Blog">
         select * from tb_Blog where User_id = #{userId}
     </select>
+    <insert id="InsertBlog" >
+        insert into tb_Blog (title,content,create_Time,user_id)
+values (#{blogTitle},#{blogContent},#{createTime},#{userId})
+    </insert>
 
     <select id="getBlogByBlogId" resultType="com.example.web.pojo.Blog">
         select * from tb_Blog where Blog_id = #{blogId}
@@ -16,9 +20,9 @@
 <!--    <insert id="InsertBlog">-->
 <!--        insert into tb_blog values(4,"这是第一篇博客",'你好傻屌',1,1,'2019-08-14 06:40:33')-->
 <!--    </insert>-->
-    <delete id="InsertBlog">
-        delete from tb_blog where id = 4
-    </delete>
+<!--    <delete id="InsertBlog">-->
+<!--        delete from tb_blog where id = 4-->
+<!--    </delete>-->
 
     <select id="getAllBlog" resultType="com.example.web.pojo.Blog">
         select * from tb_blog

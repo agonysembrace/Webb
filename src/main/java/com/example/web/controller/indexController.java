@@ -28,7 +28,5 @@ import org.springframework.web.bind.annotation.GetMapping;
             model.addAttribute("author",user);
             return "index";//与templates中index.html对应
         }
-
-
     }
 

@@ -45,6 +45,7 @@
 					<li th:if="${author.getUserId()} eq ${visitor.getUserId()} "><a href="write">write a blog</a></li>
 					<li class="dropdown"></li>
 					<li><a th:href="'blog?authorId='+${author.getUserId()}" th:text="${author.getUsername()}+'\'s Blog'">Blog</a></li>
+					<li ><a th:href="'subscribe?authorId='+${author.getUserId()}" th:text="${author.getUsername()}+'\'s Followers'">subscribe</a></li>
 					<li ><a th:text="'当前已登录: '+${visitor.getUsername()}"></a></li>
 				</ul>
 			
@@ -61,41 +62,22 @@
 		<div class="row">
 			<div class="col-sm-8 col-sm-offset-2">
 
-				<div id="comments">	
-					<h3 class="comments-title" th:text="${replyListSize}+' Comments'">3 Comments</h3>
-					<a href="#commentform" class="leave-comment">Leave a Comment</a>
-
+				<div id="comments"><br>
+					<h3 class="comments-title" th:text="${followerList.size()}+' Followers'">3 Comments</h3><br>
 					<ol class="comments-list">
-						<li class="comment" th:each="reply,replyStat:${replyList}">
+						<li class="comment" th:each="follower,followerStat:${followerList}">
 							<div>
-<!--								<div th:each="reply,replyStat:${replyList}">-->
-								<img th:src = "'/getImgById?id='+${reply.user.userId}" alt="Avatar" class="avatar">
+								<img th:src = "'/getImgById?id='+${follower.userId}" alt="Avatar" class="avatar">
 								<div class="comment-meta">
-<!--									<span th:text="${reply.user.username}"/>-->
-									<span class="author"><a th:href="@{other(authorId=${reply.user.userId})}" th:text="${reply.user.username}"/></span>
-									<span th:text="'  回复于'+${reply.replyTime}"/>
+									<span class="author"><a th:href="@{other(authorId=${follower.userId})}" th:text="${follower.username}"/></span>
 								</div>
 								<div class="comment-body">
-									<span th:text="${reply.content}"/>
-								</div>
+										<span th:text="${follower.introduction}"/>
+									</div>
+<!--									<span th:text="'  关注于'+${follower.followTime}"/>-->
 							</div>
 						</li>
 					</ol>
-
-					<div id="respond">
-						<h3 id="reply-title">Leave a Reply</h3>
-						<form th:action="'/writereply?blogId='+${blog.blogId}" method="post" id="commentform" class="">
-							<div class="form-group">
-								<label for="inputComment">Comment</label>
-								<textarea class="form-control" rows="6" name="content"></textarea>
-							</div>
-							<div class="row">
-								<div class="col-md-4 text-right">
-  									<button type="submit" class="btn btn-action">Submit</button>
-								</div>
-							</div>
-						</form>
-					</div> <!-- /respond -->
 				</div>
 			</div>
 		</div> <!-- /row comments -->

@@ -64,17 +64,21 @@ public class BlogController {
 
     @RequestMapping(value = "/getImgById", method = RequestMethod.GET)
     public void getImgById(@RequestParam(value = "id")int id,
-                           HttpServletResponse response){
+                           HttpServletResponse response) throws IOException {
+        OutputStream outputStream = null;
         try {
             byte[] img = userService.getImgByUserId(id);
 //            byte[] data = imgTest.getImg();```
             response.setContentType("image/jpeg");
             response.setCharacterEncoding("UTF-8");
-            OutputStream outputStream = response.getOutputStream();
+            outputStream = response.getOutputStream();
             outputStream.write(img);
             outputStream.flush();
-        }catch (IOException e){
+
+        } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            outputStream.close();
         }
     }
 }

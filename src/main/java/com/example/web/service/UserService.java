@@ -5,6 +5,7 @@ import com.example.web.DTO.Result;
 import com.example.web.pojo.User;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  * @author lingfei Wang
@@ -19,4 +20,6 @@ public interface UserService {
     User getUserById(int userId);
 
    byte[] getImgByUserId(int userId);
+
+   List<User> getFollowerByUserId(int userId);
 }

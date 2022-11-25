@@ -45,6 +45,7 @@
 					<li th:if="${author.getUserId()} eq ${visitor.getUserId()} "><a href="write">write a blog</a></li>
 					<li class="dropdown"></li>
 					<li><a th:href="'blog?authorId='+${author.getUserId()}" th:text="${author.getUsername()}+'\'s Blog'">Blog</a></li>
+					<li ><a th:href="'subscribe?authorId='+${author.getUserId()}" th:text="${author.getUsername()}+'\'s Followers'">subscribe</a></li>
 					<li ><a th:text="'当前已登录: '+${visitor.getUsername()}"></a></li>
 				</ul>
 			

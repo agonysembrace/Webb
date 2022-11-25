@@ -4,6 +4,7 @@ import cn.hutool.core.bean.BeanUtil;
 import com.example.web.DTO.LoginDTO;
 import com.example.web.DTO.Result;
 import com.example.web.DTO.UserDTO;
+import com.example.web.mapper.FollowMapper;
 import com.example.web.mapper.LoginMapper;
 import com.example.web.mapper.UserMapper;
 import com.example.web.pojo.User;
@@ -14,6 +15,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author lingfei Wang
@@ -30,6 +33,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     UserMapper userMapper;
+
+    @Autowired
+    FollowMapper followMapper;
 
 
     @Override
@@ -68,5 +74,17 @@ public class UserServiceImpl implements UserService {
         User user = userMapper.getUserById(userId);
         byte[] headShot = user.getHeadShot();
         return headShot;
+    }
+
+    @Override
+    public List<User> getFollowerByUserId(int userId){
+        List<Integer> idList = followMapper.getAllFollowerByUserId(userId);
+        List<User> followerList = new ArrayList<>();
+        for(int i:idList){
+            User follower = userMapper.getUserById(i);
+            followerList.add(follower);
+        }
+        //得到的是id表，还要根据id查找用户表才对
+        return followerList;
     }
 }

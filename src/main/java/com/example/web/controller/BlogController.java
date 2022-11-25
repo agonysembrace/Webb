@@ -35,30 +35,26 @@ public class BlogController {
     @Autowired
     UserService userService;
     @GetMapping("blog")//页面的url地址
-    public String blog(Model model)//对应函数
+    public String blog(@RequestParam("authorId") int authorId, Model model)//对应函数
     {
-        UserDTO user = UserHolder.getUser();
-//        Blog blog = blogService.getBlogByIdAndUser(1, user.getUserId());
-        List<Blog> list = blogService.getBlogByUserId(user.getUserId());
-//        model.addAttribute("blogList",list);
-//        if(list.size() > 0)
-//          model.addAttribute("blog1",list.get(0));
-//        if(list.size() > 1)
-//          model.addAttribute("blog2",list.get(1));
-//        if(list.size() > 2)
-//          model.addAttribute("blog3",list.get(2));
-        model.addAttribute("author",user);
+        User author = userService.getUserById(authorId);
+        UserDTO visitor = UserHolder.getUser();
+        List<Blog> list = blogService.getBlogByUserId(author.getUserId());
+        model.addAttribute("visitor",visitor);
+        model.addAttribute("author",author);
         model.addAttribute("blogList",list);
-        return "blog";//与templates中index.html对应
+        return "blog";
     }
 
     @GetMapping("single")//页面的url地址
     public String singleBlog(@RequestParam("blogId")int blogId, Model model)//对应函数
     {
-
+        UserDTO visitor = UserHolder.getUser();
         Blog blog = blogService.getBlogByBlogId(blogId);
+        //因为是从博客标题点进来的，所以直接通过携带的博客Id获取作者id
         User user = userService.getUserById(blog.getUserId());
         List<Reply> replyList = blogService.getReplyByBlogId(blogId);
+        model.addAttribute("visitor",visitor);
         model.addAttribute("replyList",replyList);
         model.addAttribute("replyListSize",replyList.size());
         model.addAttribute("blog",blog);

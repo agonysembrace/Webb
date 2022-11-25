@@ -21,8 +21,10 @@
 <body>
 
 <header id="header">
+
 	<div id="head" class="parallax" parallax-speed="1">
 		<h1 id="logo" class="text-center">
+<!--			<div align="right">text</div>-->
 <!--			<img class="img-circle" src="assets/images/guy.jpg" alt="">-->
 <!--			<span class="title"  th:text="${username}+'\'s Blog' ">Anthony Russel's Blog</span>-->
 <!--			<span class="tagline"  th:text="${introduction}">A creative man is motivated by the desire to achieve, not by the desire to beat others.</span>-->
@@ -43,7 +45,7 @@
 				
 				<ul class="nav navbar-nav">
 					<li><a href="index">Home</a></li>
-					<li><a href="write">About</a></li>
+					<li th:if="${author.getUserId()} eq ${visitor.getUserId()} "><a href="write">write a blog</a></li>
 <!--					<li class="dropdown">-->
 <!--						<a href="#" class="dropdown-toggle" data-toggle="dropdown">More Pages <b class="caret"></b></a>-->
 <!--						<ul class="dropdown-menu">-->
@@ -52,7 +54,8 @@
 <!--							<li><a href="single.html">Blog Post</a></li>-->
 <!--						</ul>-->
 <!--					</li>-->
-					<li class="active"><a href="blog">Blog</a></li>
+					<li><a th:href="'blog?authorId='+${author.getUserId()}" th:text="${author.getUsername()}+'\'s Blog'">Blog</a></li>
+					<li ><a th:text="'当前已登录: '+${visitor.getUsername()}"></a></li>
 				</ul>
 			
 			</div><!--/.nav-collapse -->			

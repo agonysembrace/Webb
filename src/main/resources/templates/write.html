@@ -42,9 +42,10 @@
 
 				<ul class="nav navbar-nav">
 					<li><a href="index">Home</a></li>
-					<li><a href="write">write a blog</a></li>
+<!--					<li><a href="write">write a blog</a></li>-->
 					<li class="dropdown"></li>
-					<li class="active"><a href="blog">Blog</a></li>
+					<li><a th:href="'blog?authorId='+${user.getUserId()}" th:text="${user.getUsername()}+'\'s Blog'">Blog</a></li>
+					<li ><a th:text="'当前已登录: '+${user.getUsername()}"></a></li>
 				</ul>
 
 			</div><!--/.nav-collapse -->

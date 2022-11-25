@@ -26,9 +26,6 @@
 <header id="header">
     <div id="head" class="parallax" parallax-speed="2">
         <h1 id="logo" class="text-center">
-<!--            <img class="img-circle" src="assets/images/guy.jpg" alt="">-->
-<!--            <span class="title" th:text="${username}">这里是用户名</span>-->
-<!--            <span class="tagline" th:text="${introduction}">这里是一些简介<br>-->
             <img class="img-circle" th:src = "'/getImgById?id='+${author.getUserId()}" alt="">
             <span class="title"  th:text="${author.getUsername()} ">Anthony Russel's Blog</span>
             <span class="tagline"  th:text="${author.getIntroduction()}">ire </span>
@@ -36,30 +33,27 @@
         </h1>
     </div>
 
-
     <nav class="navbar navbar-default navbar-sticky">
         <div class="container-fluid">
-
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
             </div>
 
             <div class="navbar-collapse collapse">
-
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="index">Home</a></li>
-                    <li><a href="write">write</a></li>
+                    <li th:if="${author.getUserId()} eq ${visitor.getUserId()} "><a href="write">write a blog</a></li>
                     <li class="dropdown">
 <!--                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More Pages <b class="caret"></b></a>-->
-                        <ul class="dropdown-menu">
-                            <li><a href="sidebar-left.html">Left Sidebar</a></li>
-                            <li><a href="sidebar-right.html">Right Sidebar</a></li>
-                            <li><a href="single.html">Blog Post</a></li>
-                        </ul>
+<!--                        <ul class="dropdown-menu">-->
+<!--                            <li><a href="sidebar-left.html">Left Sidebar</a></li>-->
+<!--                            <li><a href="sidebar-right.html">Right Sidebar</a></li>-->
+<!--                            <li><a href="single.html">Blog Post</a></li>-->
+<!--                        </ul>-->
                     </li>
-                    <li><a href="blog">Blog</a></li>
+                    <li><a th:href="'blog?authorId='+${author.getUserId()}" th:text="${author.getUsername()}+'\'s Blog'">Blog</a></li>
+                    <li ><a th:text="'当前已登录: '+${visitor.getUsername()}"></a></li>
                 </ul>
-
             </div><!--/.nav-collapse -->
         </div>
     </nav>
@@ -71,10 +65,9 @@
 
         <div class="row section topspace">
             <div class="col-md-12">
-                <p class="lead text-center text-muted">乾坤未定,你我皆是牛马 </p>
+                <p class="lead text-center text-muted">我终于肯定我所怀念的，不是那些终将逝去的东西，而是清晨鸟鸣时那种宁静</p>
             </div>
         </div> <!-- / section -->
-
 
         <div class="row section topspace">
             <div class="panel panel-cta"><div class="panel-body">

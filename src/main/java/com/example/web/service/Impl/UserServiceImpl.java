@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.servlet.http.HttpSession;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -86,5 +87,20 @@ public class UserServiceImpl implements UserService {
         }
         //得到的是id表，还要根据id查找用户表才对
         return followerList;
+    }
+
+    @Override
+    public void addNewFollowing(int userId, int authorId, LocalDateTime subTime) {
+        followMapper.addNewFollowing(userId,authorId,subTime);
+    }
+
+    @Override
+    public boolean FollowingOrNot(int userId, int authorId) {
+        return followMapper.followingOrNot(userId, authorId) != null;
+    }
+
+    @Override
+    public void cancelFollow(int userId, int authorId) {
+        followMapper.cancelFollow(userId, authorId);
     }
 }

@@ -6,4 +6,17 @@
         select s_id from tb_sub where u_id=#{userId}
     </select>
 
+    <select id="followingOrNot" resultType="integer">
+        select s_id from tb_sub where u_id=#{authorId} and s_id=#{userId} limit 1
+    </select>
+
+    <delete id="cancelFollow">
+        delete  from tb_sub where u_id=#{authorId} and s_id=#{userId}
+    </delete>
+
+    <insert id="addNewFollowing">
+        insert into tb_sub (u_id,s_id,s_time)
+        VALUES(#{authorId},#{userId},#{subTime})
+    </insert>
+
 </mapper>

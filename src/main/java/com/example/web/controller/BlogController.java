@@ -40,9 +40,12 @@ public class BlogController {
         User author = userService.getUserById(authorId);
         UserDTO visitor = UserHolder.getUser();
         List<Blog> list = blogService.getBlogByUserId(author.getUserId());
+
         model.addAttribute("visitor",visitor);
         model.addAttribute("author",author);
         model.addAttribute("blogList",list);
+        boolean followingStat = userService.FollowingOrNot(visitor.getUserId(), authorId);
+        model.addAttribute("followingStat",followingStat);
         return "blog";
     }
 
@@ -59,6 +62,8 @@ public class BlogController {
         model.addAttribute("replyListSize",replyList.size());
         model.addAttribute("blog",blog);
         model.addAttribute("author",user);
+        boolean followingStat = userService.FollowingOrNot(visitor.getUserId(), user.getUserId());
+        model.addAttribute("followingStat",followingStat);
         return "singleBlog";//与templates中index.html对应
     }
 

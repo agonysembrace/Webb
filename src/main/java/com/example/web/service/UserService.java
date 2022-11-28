@@ -5,6 +5,7 @@ import com.example.web.DTO.Result;
 import com.example.web.pojo.User;
 
 import javax.servlet.http.HttpSession;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -22,4 +23,10 @@ public interface UserService {
    byte[] getImgByUserId(int userId);
 
    List<User> getFollowerByUserId(int userId);
+
+   void addNewFollowing(int userId, int authorId, LocalDateTime subTime);
+
+   boolean FollowingOrNot(int userId, int authorId);
+
+   void cancelFollow(int userId, int authorId);
 }

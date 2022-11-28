@@ -28,6 +28,9 @@
 			<img class="img-circle" th:src = "'/getImgById?id='+${author.getUserId()}" alt="">
 			<span class="title"  th:text="${author.getUsername()}+'\'s Blog' ">Anthony Russel's Blog</span>
 			<span class="tagline"  th:text="${author.getIntroduction()}">ire </span>
+			<br>
+			<span class="tagline" th:if="${followingStat ne true && author.getUserId() ne visitor.getUserId()}"> <a th:href="'follow?authorId='+${author.getUserId()}">订阅此作者</a> </span>
+			<span class="tagline" th:if="${followingStat ne false}"> <a th:href="'cancelfollow?authorId='+${author.getUserId()}">取消订阅</a> </span>
 		</h1>
 	</div>
 

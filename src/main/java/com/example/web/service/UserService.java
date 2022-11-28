@@ -29,4 +29,8 @@ public interface UserService {
    boolean FollowingOrNot(int userId, int authorId);
 
    void cancelFollow(int userId, int authorId);
+
+   boolean containUsername(String username);
+
+   void createUser(String username,String password);
 }

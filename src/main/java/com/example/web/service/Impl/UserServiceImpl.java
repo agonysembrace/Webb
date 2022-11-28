@@ -103,4 +103,15 @@ public class UserServiceImpl implements UserService {
     public void cancelFollow(int userId, int authorId) {
         followMapper.cancelFollow(userId, authorId);
     }
+
+    @Override
+    public boolean containUsername(String username) {
+       User user =  userMapper.getUserByUsername(username);
+        return user != null;
+    }
+
+    @Override
+    public void createUser(String username, String password) {
+        userMapper.createUser(username,password);
+    }
 }

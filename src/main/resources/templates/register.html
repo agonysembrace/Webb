@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport"    content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="">	
-	<title>Blog Details</title>
+	<meta name="description" content="">
+	<title>Create a account！</title>
 
 	<link rel="shortcut icon" href="assets/images/gt_favicon.png">
-	
+
 	<!-- Bootstrap -->
 	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css" rel="stylesheet">
 	<!-- Icon font -->
@@ -24,99 +25,67 @@
 <header id="header">
 	<div id="head" class="parallax" parallax-speed="1">
 		<h1 id="logo" class="text-center">
-<!--			<img class="img-circle" src="assets/images/guy.jpg" alt="">-->
-			<img class="img-circle" th:src = "'/getImgById?id='+${author.getUserId()}" alt="">
-			<span class="title"  th:text="${author.getUsername()}+'\'s Blog' ">Anthony Russel's Blog</span>
-			<span class="tagline"  th:text="${author.getIntroduction()}">ire </span>
-			<br>
-			<span class="tagline" th:if="${followingStat ne true && author.getUserId() ne visitor.getUserId()}"> <a th:href="'follow?authorId='+${author.getUserId()}">订阅此作者</a> </span>
-			<span class="tagline" th:if="${followingStat ne false}"> <a th:href="'cancelfollow?authorId='+${author.getUserId()}">取消订阅</a> </span>
+			<!--			<img class="img-circle" src="assets/images/guy.jpg" alt="">-->
+			<span class="title"  >注册一个你的账号</span>
 		</h1>
 	</div>
 
+
+
+
+
 	<nav class="navbar navbar-default navbar-sticky">
 		<div class="container-fluid">
-			
+
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
 			</div>
-			
+
 			<div class="navbar-collapse collapse">
-				
-				<ul class="nav navbar-nav">
-					<li><a href="index">Home</a></li>
-					<li th:if="${author.getUserId()} eq ${visitor.getUserId()} "><a href="write">write a blog</a></li>
-					<li class="dropdown"></li>
-					<li><a th:href="'blog?authorId='+${author.getUserId()}" th:text="${author.getUsername()}+'\'s Blog'">Blog</a></li>
-					<li ><a th:href="'subscribe?authorId='+${author.getUserId()}" th:text="${author.getUsername()}+'\'s Followers'">subscribe</a></li>
-					<li ><a th:text="'当前已登录: '+${visitor.getUsername()}"></a></li>
-				</ul>
-			
-			</div><!--/.nav-collapse -->			
-		</div>	
+
+<!--				<ul class="nav navbar-nav">-->
+<!--					<li><a href="index">Home</a></li>-->
+<!--&lt;!&ndash;					<li><a href="write">write a blog</a></li>&ndash;&gt;-->
+<!--					<li class="dropdown"></li>-->
+<!--					<li><a th:href="'blog?authorId='+${user.getUserId()}" th:text="${user.getUsername()}+'\'s Blog'">Blog</a></li>-->
+<!--					<li ><a th:text="'当前已登录: '+${user.getUsername()}"></a></li>-->
+<!--				</ul>-->
+
+			</div><!--/.nav-collapse -->
+		</div>
 	</nav>
 </header>
 
 <main id="main">
 
 	<div class="container">
-		
-		<div class="row topspace">
-			<div class="col-sm-8 col-sm-offset-2">
-															
- 				<article class="post">
-					<header class="entry-header">
- 						<div class="entry-meta"> 
- 							<span class="posted-on"><time class="entry-date published" date="2013-06-17"  th:text="${blog.createTime}">June 17, 2013</time></span>
- 						</div> 
- 						<h1 class="entry-title"><a  rel="bookmark" th:text ="${blog.title}">Vivamus Lacus Mauris</a></h1>
-					</header> 
-					<div class="entry-content">
-						<p th:text="${blog.content}" ></p>
 
-					</div> 
-				</article><!-- #post-## -->
-			</div> 
+		<div class="row topspace">
 		</div> <!-- /row post  -->
 
 		<div class="row">
 			<div class="col-sm-8 col-sm-offset-2">
-
-				<div id="comments">	
-					<h3 class="comments-title" th:text="${replyList.size()}+' Comments'">3 Comments</h3>
-					<a href="#commentform" class="leave-comment">Leave a Comment</a>
-
-					<ol class="comments-list">
-						<li class="comment" th:each="reply,replyStat:${replyList}">
-							<div>
-<!--								<div th:each="reply,replyStat:${replyList}">-->
-								<img th:src = "'/getImgById?id='+${reply.user.userId}" alt="Avatar" class="avatar">
-								<div class="comment-meta">
-<!--									<span th:text="${reply.user.username}"/>-->
-									<span class="author"><a th:href="@{other(authorId=${reply.user.userId})}" th:text="${reply.user.username}"/></span>
-									<span th:text="'  回复于'+${reply.replyTime}"/>
-								</div>
-								<div class="comment-body">
-									<span th:text="${reply.content}"/>
-								</div>
-							</div>
-						</li>
-					</ol>
-
+				<div id="comments">
 					<div id="respond">
-						<h3 id="reply-title">Leave a Reply</h3>
-						<form th:action="'/writereply?blogId='+${blog.blogId}" method="post" id="commentform" class="">
+						<h3 id="reply-title">Create a account！</h3>
+						<form action="registerForm" method="post" id="commentform" class="blogForm">
 							<div class="form-group">
-								<label for="inputComment">Comment</label>
-								<textarea class="form-control" rows="6" name="content"></textarea>
+								<label for="inputTopic">username</label>
+								<input type="text" class="form-control" id="inputTopic" name="username" @input="userNameLimit" placeholder="Enter Username" onkeyup="value=value.replace(/[\W]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
 							</div>
+							<div class="form-group">
+								<input type="password" class="form-control" id="inputPassword" name="password" @input="userPassword" placeholder="Enter password" onkeyup="value=value.replace(/[\W]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
+								<input type="password" class="form-control" id="inputAgain" name="passwordAgain" placeholder="Enter again" onkeyup="value=value.replace(/[\W]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
+<!--								<input onkeyup="value=value.replace(/[\W]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">-->
+
+			 				</div>
 							<div class="row">
 								<div class="col-md-4 text-right">
-  									<button type="submit" class="btn btn-action">Submit</button>
+									<button type="submit" class="btn btn-action">Submit</button>
 								</div>
 							</div>
 						</form>
-					</div> <!-- /respond -->
+					</div>
 				</div>
 			</div>
 		</div> <!-- /row comments -->
@@ -197,6 +166,27 @@
 		</div> <!-- /row of widgets -->
 	</div>
 </footer>
+
+
+
+<script>
+
+	const app = new Vue({
+
+		methods: {
+
+			//只能输入英文、数字
+			userPasswordLimit: function () {
+				this.userPassword = this.userPassword.replace(/[^\a-\z\A-\Z0-9]/g, '')
+			},
+// 限制输入特殊字符
+			userNameLimit: function () {
+				this.userName = this.userName.replace(/[ `~!@#$%^&*()_\-+=<>?:"{}|,.\/;'\\[\]·~！@#￥%……&*（）——\-+={}|《》？：“”【】、；‘’，。、]/g, '')
+
+			}
+		}
+	})
+</script>
 
 
 <!-- JavaScript libs are placed at the end of the document so the pages load faster -->

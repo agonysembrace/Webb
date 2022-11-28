@@ -28,7 +28,8 @@ jQuery(document).ready(function($) {
 	
 	// run our function on load
 	sticky_navigation();
-	
+
+
 	// and run it again every time you scroll
 	$(window).scroll(function() {
 		 sticky_navigation();
@@ -36,3 +37,17 @@ jQuery(document).ready(function($) {
 	});
 
 });
+
+
+
+// $(document).ready(function(){
+// 	//alert("sssss");
+// 	// var msg = document.getElementById("msg");
+// 	// var message = msg.text;
+// 	var message2=$("#msg").html();
+//
+// 	if(message2!="a") {
+// 		alert(message2)
+// 	}
+//
+// })

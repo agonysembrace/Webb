@@ -18,5 +18,8 @@ public interface UserMapper {
 
     User getUserById(int userId);
     Void insertImg(byte[] img);
+    User getUserByUsername(String username);
+
+    Void createUser(String username ,String password);
 //    User  getImgByUserId(int userId);
 }

@@ -68,6 +68,16 @@
       }
     },
     methods: {
+
+      //只能输入英文、数字
+      userPasswordLimit:function() {
+        this.userPassword = this.userPassword.replace(/[^\a-\z\A-\Z0-9]/g, '')
+      },
+// 限制输入特殊字符
+      userNameLimit:function() {
+        this.userName = this.userName.replace(/[ `~!@#$%^&*()_\-+=<>?:"{}|,.\/;'\\[\]·~！@#￥%……&*（）——\-+={}|《》？：“”【】、；‘’，。、]/g, '')
+      },
+
       login(){
         if(!this.radio){
           this.$message.error("请先确认阅读用户协议！");

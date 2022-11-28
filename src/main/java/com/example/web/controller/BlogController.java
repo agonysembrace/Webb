@@ -59,7 +59,6 @@ public class BlogController {
         List<Reply> replyList = blogService.getReplyByBlogId(blogId);
         model.addAttribute("visitor",visitor);
         model.addAttribute("replyList",replyList);
-        model.addAttribute("replyListSize",replyList.size());
         model.addAttribute("blog",blog);
         model.addAttribute("author",user);
         boolean followingStat = userService.FollowingOrNot(visitor.getUserId(), user.getUserId());

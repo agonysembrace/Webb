@@ -42,7 +42,9 @@ import org.springframework.web.bind.annotation.RequestParam;
         UserDTO visitor = UserHolder.getUser();
         model.addAttribute("author",author);
         model.addAttribute("visitor",visitor);
-        return "index";//与templates中index.html对应
+        return "forward:blog";//与templates中index.html对应
     }
+
+
     }
 

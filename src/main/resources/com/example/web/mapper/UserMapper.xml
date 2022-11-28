@@ -11,7 +11,14 @@
         values (#{img, jdbcType=BLOB})
     </insert>
 
+    <select id="getUserByUsername" resultType="com.example.web.pojo.User">
+        select * from tb_user where  user_name=#{username} limit 1
+    </select>
 
+    <insert id="createUser" >
+        insert into tb_user (user_name,password)
+        values (#{username},#{password})
+    </insert>
 <!--    <select id="getImgByUserId" resultType="com.example.web.pojo.User">-->
 <!--       select * from tb_user where user_id=#{userId} limit 1-->
 <!--    </select>-->

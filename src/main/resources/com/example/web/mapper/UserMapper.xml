@@ -19,6 +19,14 @@
         insert into tb_user (user_name,password)
         values (#{username},#{password})
     </insert>
+
+    <update id="updateInfo">
+        update tb_user set headShot=#{img} where user_id = #{userId}
+    </update>
+
+    <update id="updateAll">
+        update tb_user set headShot=#{img},user_name=#{username},introduction=#{introduction},password=#{password} where user_id = #{userId}
+    </update>
 <!--    <select id="getImgByUserId" resultType="com.example.web.pojo.User">-->
 <!--       select * from tb_user where user_id=#{userId} limit 1-->
 <!--    </select>-->

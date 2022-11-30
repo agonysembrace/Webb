@@ -44,12 +44,7 @@
                     <li class="active"><a href="index">Home</a></li>
                     <li th:if="${author.getUserId()} eq ${visitor.getUserId()} "><a href="write">write a blog</a></li>
                     <li class="dropdown">
-<!--                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More Pages <b class="caret"></b></a>-->
-<!--                        <ul class="dropdown-menu">-->
-<!--                            <li><a href="sidebar-left.html">Left Sidebar</a></li>-->
-<!--                            <li><a href="sidebar-right.html">Right Sidebar</a></li>-->
-<!--                            <li><a href="single.html">Blog Post</a></li>-->
-<!--                        </ul>-->
+
                     </li>
                     <li><a th:href="'blog?authorId='+${author.getUserId()}" th:text="${author.getUsername()}+'\'s Blog'">Blog</a></li>
                     <li ><a th:href="'subscribe?authorId='+${author.getUserId()}" th:text="${author.getUsername()}+'\'s Followers'">subscribe</a></li>
@@ -64,22 +59,33 @@
 
     <div class="container">
 
-        <div class="row section topspace">
-            <div class="col-md-12">
-                <p class="lead text-center text-muted">我终于肯定我所怀念的，不是那些终将逝去的东西，而是清晨鸟鸣时那种宁静</p>
+        <form action="changeInfo" method="post" enctype ="multipart/form-data">
+            选择或更换图片来当做自己的头像
+            <input type="file" id="btn-file" onchange="inputFile(this)" name = "uploadImg" accept="image/*" th:value="${visitor.getHeadShot()}" required>
+            <div class="form-group">
+                <label for="inputTopic">userName</label>
+                <input type="text" class="form-control" id="inputTopic" name="username"  th:value="${visitor.getUsername()}">
+                <label for="inputTopic">Password</label>
+                <input type="password" class="form-control" id="inputTopic" name="password"  placeholder="Enter Password" required>
             </div>
-        </div> <!-- / section -->
+            <div class="form-group">
+                <label for="inputContent">Introduction</label>
+                <input class="form-control" name="introduction" rows="5" th:value="${visitor.getIntroduction()}" ></input>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-right">
+                    <button type="submit" class="btn btn-action">Submit</button>
+                </div>
+            </div>
+        </form>
 
-        <div class="row section topspace">
-            <div class="panel panel-cta"><div class="panel-body">
-                <div class="col-lg-8">
-                    <p><a href="change" >修改个人信息</a></p>
-                </div>
-                <div class="col-lg-4 text-right">
-<!--                    <a target="_blank" href="http://www.mobanwang.com" title="网页模板">网页模板</a>-->
-                </div>
-            </div></div>
-        </div> <!-- /section -->
+
+
+
+
+
+
+
 
         <div class="row section clients topspace">
             <h2 class="section-title"><span>Clients</span></h2>

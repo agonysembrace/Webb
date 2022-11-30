@@ -21,5 +21,7 @@ public interface UserMapper {
     User getUserByUsername(String username);
 
     Void createUser(String username ,String password);
+    void updateInfo(byte[] img,int userId);
+    void updateAll(byte[] img,int userId,String username ,String password,String introduction);
 //    User  getImgByUserId(int userId);
 }

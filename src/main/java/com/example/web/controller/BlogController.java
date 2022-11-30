@@ -27,13 +27,13 @@ import java.util.List;
  */
 
 @Controller
-public class BlogController {
+public class BlogController extends BaseController{
 
-    @Autowired
-    BlogService blogService;
-
-    @Autowired
-    UserService userService;
+//    @Autowired
+//    BlogService blogService;
+//
+//    @Autowired
+//    UserService userService;
     @GetMapping("blog")//页面的url地址
     public String blog(@RequestParam("authorId") int authorId, Model model)//对应函数
     {

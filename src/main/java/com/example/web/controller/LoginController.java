@@ -20,10 +20,10 @@ import javax.servlet.http.HttpSession;
 //@ResponseBody
 @Controller
 @RequestMapping("/user")
-public class LoginController {
+public class LoginController extends BaseController{
 
-    @Autowired
-    UserService userService;
+//    @Autowired
+//    UserService userService;
 
 //    @RequestMapping("/login")
     @PostMapping("/login")

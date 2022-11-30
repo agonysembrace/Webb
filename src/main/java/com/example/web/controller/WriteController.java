@@ -22,10 +22,10 @@ import java.time.LocalDateTime;
  * @Decription:
  */
 @Controller
-public class WriteController {
+public class WriteController extends BaseController{
 
-    @Autowired
-    BlogService blogService;
+//    @Autowired
+//    BlogService blogService;
 
     @GetMapping("write")//页面的url地址
     public String getwrite(Model model)//对应函数

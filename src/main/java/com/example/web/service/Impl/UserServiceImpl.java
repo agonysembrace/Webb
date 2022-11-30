@@ -114,4 +114,14 @@ public class UserServiceImpl implements UserService {
     public void createUser(String username, String password) {
         userMapper.createUser(username,password);
     }
+
+    @Override
+    public void updateInfo(byte[] img, int userId) {
+        userMapper.updateInfo(img,userId);
+    }
+
+    @Override
+    public void updateAll(byte[] img, int userId, String username, String password, String introduction) {
+        userMapper.updateAll(img, userId, username, password, introduction);
+    }
 }

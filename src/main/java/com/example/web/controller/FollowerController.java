@@ -20,10 +20,10 @@ import java.util.List;
  * @Decription:
  */
 @Controller
-public class FollowerController {
+public class FollowerController extends BaseController{
 
-    @Autowired
-    UserService userService;
+//    @Autowired
+//    UserService userService;
 
     @GetMapping("subscribe")
     public String subscribe(@RequestParam("authorId") int authorId, Model model){

@@ -21,9 +21,9 @@ import java.util.Objects;
  */
 
 @Controller
-public class RegisterController {
-    @Autowired
-    UserService userService;
+public class RegisterController extends BaseController{
+//    @Autowired
+//    UserService userService;
 
     @GetMapping("register")
     public String register(){

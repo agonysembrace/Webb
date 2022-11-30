@@ -33,4 +33,7 @@ public interface UserService {
    boolean containUsername(String username);
 
    void createUser(String username,String password);
+
+   void updateInfo(byte[] img,int userId);
+   void updateAll(byte[] img,int userId,String username ,String password,String introduction);
 }
